@@ -1,0 +1,28 @@
+Youssef Gaballa
+(810-118-509)
+(1) The fifth character is the null character '\0' so it has a total of 5 chars
+(2) Arrays are represented as constant pointers, so s1 and s2 point to two different memory addresses, each of which contains the string "zoey".
+The memory addresses for the starting character in s1 and s2 are being compared in "s1 == s2".
+(3) The strcmp() function compares each character in s3 and s4, both of which are pointers to a
+sequence of characters that reads 'z','o','e','y','\0'. The strcmp function dereferences each pointer
+at each index and compares the anscii value of the characters, since they're the same, the function returns 0
+indicating that they're the same string.
+(4) The memory addresses for d[0], d[1], d[2], d[3], and d[4] respectively are 500, 508, 516,524, 532 since d is an array of doubles (8 bytes).
+Referencing the memory address for each then for the one previous to it always yields 8.
+Ex: (int) ((unsigned long) &d[0+1] - (unsigned long) &d[0]) = (int)( (unsigned long) 808 - (unsigned long) (800)) = (int) (808 - 800) = (int) 8 = 8
+(5) s4 is originally an pointer to char that reads "zoey\0". We then copy the reference to that string to p1 (pointer to char) when we get to "char * p1 = &s4[0];".
+"*p1 = 'j';" sets the first character in that string to 'j', making the same string pointed to by s4 to "joey\0". "*(&s4[3]) = 's';" gets the reference to the fourth
+char pointed by s4, then dereferences it, then changes its value to 's', making the string read "joes\0".
+For s5, the declaration "char * s5 = "zoey\0 is awesome";" initializes s5 as a pointer to char starting at 'z', but s5[5] is '\0' (escape character to the
+null character) which ends the string there. So s5 just reads "zoey\0" or just "zoey" (ommitting '\0').
+(6) q and p2 are both pointers to int, both starting at &q[0]. The first iteration of the for-loop (i = 1) sets the first int pointed by p2 (and thus q) to 5;
+q[0] = *(p2+1-1) = *p2 = 1*5 = 5. The second iteration of the for-loop (i = 2) sets the second int pointed by p2 and q to 10;
+q[1] = *(p2 + 2 - 1) = *(p2 + 1) = 2*5 = 10. The third iteration (i = 3) sets the third int pointed by p2 and q to 15;
+q[2] = *(p2 + 3 - 1) = *(p2 + 2) = 3*5 = 15.
+"f(*(q + 1), (q + 2));" sets the value of *(q + 1) and thus q[1] to -2, and the value referenced by (q+2) and &q[2] to -3.
+So the value of (q[1] + q[2]) is -2 + -3 = -5.
+It isn't correct syntax to use *(q[1] + q[2]) to compute the value of (q[1] + q[2]) because q[i] already derefences the value of q at i. q[i] is equivalent to
+*(q + i). Dereferencing it again dereferences the primitive int, which is an error.
+(7) The memory addresses for p2 and q change each time the program is run on odin because they are stored on the stack (local variables to main method) and the
+operating system decides where to put the local variables and that changes each time the program runs.
+The base-10 decimal system is used to display the memory addresses shown in 7, hexadecimal is used to display the memory addresses in 8.

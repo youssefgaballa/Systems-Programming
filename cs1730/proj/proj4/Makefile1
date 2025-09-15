@@ -1,0 +1,7 @@
+compile:
+	gcc -Wall -pedantic-errors proj4.c -g -c -pthread
+	gcc -Wall -pedantic-errors test.c -g -c
+	gcc -Wall -pedantic-errors test.o proj4.o -g -o test.out -pthread
+
+run:
+	./test.out

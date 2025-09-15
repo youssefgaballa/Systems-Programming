@@ -1,0 +1,33 @@
+Youssef Gaballa
+(810-118-509)
+
+(1a) Both lines of code are valid
+(1b) The second line (*p2 = 11;) is invalid since p2 is a pointer to const int, so the int can't be changed.
+(1c) Both lines 2 and 3 (*p3 = 11; and p3 = &y;) are invalid since p3 is a const pointer to const int, meaning p3 can't be changed to point to a different value,
+and can't change the value it points to.
+
+(2a) All three lines are valid
+(2b) Lines 2 and 3 (p2++;, p3++;) are invalid since both are pointers to constant int (p3 is also a constant pointer).
+(2c) a = b; and a++; are invalid since a is an array which is a constant pointer (meaning you cant change where it points to).
+
+(3a) While x can be incremented because it isn't const, foo()++; can't because foo() returns a const int which cant be changed, therefore it is invalid.
+(3b) (*p1)++; is invalid since p1 points to a const int. (*bar())++; is invalid since bar returns a pointer to const int.
+(3c) (*p2)++; is invald since p2 points to a const int. baz()++; is invalid since baz() returns a const pointer.
+
+(4a) "44\n22\n" is printed. The call to divBy2 doesnt change the value of x since it passes the value of x by value. divBy2Again(&x); passes the pointer to x and
+divides the actual value of x by dereferencing the pointer.
+(4b) divBy2Again expects a pointer, x is not a pointer so the refernce to x needs to be passes to the function to initialize the parameter.
+(4c)
+int x;                  x is an int
+int * x;                x is a pointer to an int
+char ** x;              x is a pointer to a pointer to char
+int * x [5];            x is an array of 5 pointers to int.
+int (* x) [5];          x is a pointer to an array of 5 ints
+int (* x [5]) [5];      x is an array of 5 pointers to an array of 5 ints
+int * (* x [5]) [5];    x is an array of 5 pointers to an array of 5 pointers to ints
+int x();                x is a function that takes no arguments and returns an int
+int x(int);             x is a function that takes an int as a parameter and returns an int
+int * x();              x is a function that takes no arguments and returns a pointer to int
+int * x(int *);         x is a function that takes a pointer to int as an argument and returns a pointer to int
+int (* x)();            x is a pointer to a function that takes no arguments and returns an int
+int ** (* x)(int **);   x is a pointer to a function that takes a pointer to a pointer to int as an arugment and returns a pointer to a pointer to an int

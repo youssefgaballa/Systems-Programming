@@ -1,0 +1,10 @@
+Program started with pid = 30596.
+Enter a list of doubles to sum, 
+and to end the program, 
+run one of the following Unix commands: 
+ kill -8 30596
+ kill -10 30596
+ kill -12 30596
+Error: please input a numeric value.
+The sum is 30.500000.
+Program ended by handling the signal from kill -10 30596.

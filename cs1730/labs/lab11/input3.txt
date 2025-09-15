@@ -1,0 +1,9 @@
+zoey is awesome
+5.7
+6.42
+8.53
+77
+1e2
+quit
+2
+3
